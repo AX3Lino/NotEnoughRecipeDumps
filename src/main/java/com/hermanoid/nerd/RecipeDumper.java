@@ -125,12 +125,7 @@ public class RecipeDumper extends DataDumper {
 
     @Override
     public void dumpTo(File file) {
-        // Allow both 1 and 0... I dunno why but if you're running debug the mode is 1 and if you run with the full
-        // GTNH modpack it's 0.
-        // Instead of solving it, we ignore it (big brain)
-        if (getMode() != 1 && getMode() != 0) {
-            throw new RuntimeException("RecipeDumper received an unexpected mode! There should only be one mode: JSON");
-        }
+        // Always dump JSON, regardless of mode
         dumpJson(file);
     }
 
